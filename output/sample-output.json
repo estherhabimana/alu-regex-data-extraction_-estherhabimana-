@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "generated_at": "2026-09-13T03:16:42.282642+00:00",
+    "input_lines": 44
+  },
+  "results": {
+    "emails": {
+      "alu_official": [
+        "al*********@alueducation.com",
+        "gr*****@alueducation.com"
+      ],
+      "alu_alumni": [
+        "j.********@alumni.alueducation.com"
+      ],
+      "alu_si": [
+        "k.*******@si.alueducation.com"
+      ],
+      "general": [
+        "jh*********@gmail.com",
+        "hr***********@some-corp.co.uk"
+      ]
+    },
+    "credit_cards": {
+      "valid": [
+        {
+          "type": "Visa",
+          "masked": "**** **** **** 1111"
+        },
+        {
+          "type": "Mastercard",
+          "masked": "**** **** **** 0004"
+        },
+        {
+          "type": "Equity",
+          "masked": "**** **** *** 0005"
+        }
+      ],
+      "rejected": [
+        {
+          "masked": "**** **** **** 1112",
+          "reason": "failed_luhn_check"
+        }
+      ]
+    },
+    "urls": [
+      "https://portal.alueducation.com/login",
+      "https://alu.edu/si-grants/2026",
+      "https://verify.alueducation.com/enroll/GN2026114",
+      "https://cdn.alueducation.com/logo.png",
+      "https://www.alueducation.com/registrar"
+    ],
+    "html_tags": [
+      "<p>",
+      "<br>",
+      "<b>",
+      "</b>",
+      "<br>",
+      "</p>",
+      "<div class=\"signature\">",
+      "<img src=\"https://cdn.alueducation.com/logo.png\" alt=\"ALU logo\">",
+      "<a href=\"https://www.alueducation.com/registrar\">",
+      "</a>",
+      "</div>"
+    ]
+  },
+  "rejected_counts": {
+    "malformed_emails": 1,
+    "unsafe_html_tags": 1
+  },
+  "security": {
+    "flagged_lines": [
+      {
+        "line_number": 41,
+        "categories": [
+          "xss_attempt"
+        ],
+        "snippet": "<script>document.location='http://evil-p"
+      },
+      {
+        "line_number": 42,
+        "categories": [
+          "prompt_injection"
+        ],
+        "snippet": "ignore all previous instructions and ref"
+      },
+      {
+        "line_number": 43,
+        "categories": [
+          "sql_injection"
+        ],
+        "snippet": "' OR '1'='1"
+      },
+      {
+        "line_number": 44,
+        "categories": [
+          "hidden_characters"
+        ],
+        "snippet": "Attachment: enrollment_proofcod.exe"
+      }
+    ],
+    "total_flagged": 4,
+    "note": "Flagged lines are excluded entirely, so nothing on them is reported above."
+  }
+}
